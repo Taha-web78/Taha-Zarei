@@ -15,12 +15,6 @@
   --main-color: #00ffee;
 }
 
-/* html {
-  overflow: scroll;
-  scrollbar-color: var(--main-color) var(--bg-color);
-  scrollbar-width: thin;
-} */
-
 html {
   font-size: 60%;
 }
@@ -44,6 +38,22 @@ body {
   z-index: 5;
 }
 
+.logo {
+  font-size: 3rem;
+  color: var(--text-color);
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.logo span {
+  text-shadow: 0 0 25px var(--main-color);
+}
+
 /* MOBILE */
 .btn-mobile-nav {
   border: none;
@@ -63,41 +73,36 @@ body {
   display: none;
 }
 
-.logo {
-  font-size: 3rem;
-  color: var(--text-color);
-  font-weight: 800;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.1);
-}
-
-.logo span {
-  text-shadow: 0 0 25px var(--main-color);
-}
-
-.navbar a {
-  font-size: 1.8rem;
-  color: var(--text-color);
-  margin-left: 4rem;
-  font-weight: 500;
-  transition: 0.3s ease;
-  border-bottom: 3px solid transparent;
-}
-
-.navbar a:hover,
-.navbar a:active {
-  color: var(--main-color);
-  border-bottom: 3px solid var(--main-color);
-}
+/* NAVIGATION */
 
 .btn-mobile-nav {
   font-size: 3.6rem;
   color: var(--main-color);
   display: none;
+}
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: var(--main-color);
+  border-bottom: 3px solid var(--main-color);
 }
 
 section {
@@ -118,7 +123,6 @@ section {
   align-items: baseline;
   text-align: left;
   justify-content: center;
-  margin-top: 3rem;
 }
 span {
   color: var(--main-color);
@@ -399,15 +403,15 @@ span {
 }
 
 .timeline-content h3 {
-  font-size: 20px;
+  font-size: 2.4rem;
   color: white;
   margin: 0 0 10px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .timeline-content p {
   color: white;
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: 300;
   line-height: 22px;
 }
@@ -431,7 +435,7 @@ span {
 
 .service-box {
   background-color: var(--main-color);
-  height: 300px;
+  height: 250px;
   border-radius: 3rem;
   border: 5px solid transparent;
   cursor: pointer;
@@ -454,11 +458,14 @@ span {
   align-items: baseline;
   padding: 5rem 5rem;
 }
+
 .service-info h4 {
-  font-size: 3rem;
+  font-size: 2.3rem;
   font-weight: 800;
   line-height: 2;
+  margin-bottom: 3rem;
 }
+
 .service-info p {
   font-size: 1.6rem;
   font-weight: 600;
@@ -523,12 +530,19 @@ span {
   box-shadow: 0 0 50px var(--main-color);
 }
 
+.testimonial-item img {
+  width: 200px;
+  height: 200px;
+}
+
 .testimonial-item h2 {
   font-size: 2.8rem;
+  margin-top: 2rem;
 }
 
 .testimonial-item p {
   font-size: 1.3rem;
+  line-height: 2;
 }
 
 #star {
@@ -562,19 +576,23 @@ span {
 
 .contact form .input-box input,
 .contact form textarea {
-  width: 100%;
-  padding: 2.5rem;
+  width: 90%;
+  padding: 2rem;
   font-size: 1.8rem;
   color: var(--text-color);
   background: var(--second-bg-color);
   border-radius: 2rem;
   border: 2px solid var(--main-color);
-  margin: 1.5rem;
+  margin: 1rem;
   resize: none;
 }
 
 .contact form .btn {
   margin-top: 2rem;
+}
+
+.btn-form {
+  width: 90%;
 }
 
 .footer {
@@ -592,16 +610,17 @@ span {
 }
 
 .footer .social a {
-  font-size: 25px;
-  color: var(--main-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: transparent;
   border: 2px solid var(--main-color);
-  width: 42px;
-  height: 42px;
-  line-height: 42px;
-  display: inline-block;
-  text-align: center;
+  font-size: 2.5rem;
   border-radius: 50%;
-  margin: 0 10px;
+  color: var(--main-color);
+  margin: 3rem 1.5rem 3rem 0;
   transition: 0.3s ease-in-out;
 }
 
@@ -692,6 +711,7 @@ span {
 
   .contact form {
     text-decoration: column;
+    flex-direction: column;
   }
 
   .footer {
@@ -726,6 +746,9 @@ span {
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
+
+    margin: 0;
+    padding: 0;
   }
 
   .nav-open .navbar {
@@ -744,14 +767,16 @@ span {
   }
 
   .main-nav-list {
-    display: flex;
     flex-direction: column;
     gap: 4.8rem;
+    justify-content: center;
+    align-items: center;
   }
 
   .main-nav-link:link,
   .main-nav-link:visited {
     font-size: 3rem;
+    display: block;
   }
 
   .home {
